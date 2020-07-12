@@ -1,0 +1,122 @@
+<mat-card>
+  <mat-card-content>
+    <cdk-virtual-scroll-viewport
+      itemSize="80"
+      class="container"
+      (scrolledIndexChange)="nextBatch($event)"
+    >
+      <table class="table borderless">
+        <thead>
+          <tr class="light">
+            <th>Id</th>
+            <th>Type</th>
+            <th>Sender</th>
+            <th>Volume</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *cdkVirtualFor="let stat of stats; let i = index" class="number">
+            <td>{{ stat.row_id }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-round received"
+              >
+                {{ stat.type }}
+              </button>
+            </td>
+            <td>
+              <span class="text-muted">{{ stat.sender }} USD</span>
+            </td>
+            <td>
+              {{ stat.volume }}
+            </td>
+            <td>{{ stat.time | date }}</td>
+          </tr>
+
+          <!--  <tr>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-round pending"
+              >
+                Pending
+              </button>
+            </td>
+            <td>
+              +131313131313 XTZ <span class="text-muted">13,000,000 USD</span>
+            </td>
+            <td>Nov 1 2018, 11:00</td>
+            <td>tz... 9s2fj</td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-round received"
+              >
+                Recieved
+              </button>
+            </td>
+            <td>
+              +131313131313 XTZ <span class="text-muted">13,000,000 USD</span>
+            </td>
+            <td>Nov 1 2018, 11:00</td>
+            <td>tz... 9s2fj</td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-outline-dark btn-round sent">
+                Sent
+              </button>
+            </td>
+            <td>
+              +131313131313 XTZ <span class="text-muted">13,000,000 USD</span>
+            </td>
+            <td>Nov 1 2018, 11:00</td>
+            <td>tz... 9s2fj</td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-outline-dark btn-round sent">
+                Sent
+              </button>
+            </td>
+            <td>
+              +131313131313 XTZ <span class="text-muted">13,000,000 USD</span>
+            </td>
+            <td>Nov 1 2018, 11:00</td>
+            <td>tz... 9s2fj</td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-round reward"
+              >
+                Reward
+              </button>
+            </td>
+            <td>
+              +131313131313 XTZ <span class="text-muted">13,000,000 USD</span>
+            </td>
+            <td>Nov 1 2018, 11:00</td>
+            <td>tz... 9s2fj</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </cdk-virtual-scroll-viewport>
+
+    <!-- <cdk-virtual-scroll-viewport
+      itemSize="100"
+      class="container"
+      (scrolledIndexChange)="nextBatch($event)"
+    >
+      <div *cdkVirtualFor="let stat of stats; let i = index" class="number">
+        {{ stat | json }}
+      </div>
+    </cdk-virtual-scroll-viewport> -->
+  </mat-card-content>
+</mat-card>

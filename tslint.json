@@ -81,6 +81,7 @@
       "single"
     ],
     "semicolon": {
+      "severity": "off",
       "options": [
         "always"
       ]
@@ -117,6 +118,7 @@
       ]
     },
     "variable-name": {
+      "severity": "off",
       "options": [
         "ban-keywords",
         "check-format",
